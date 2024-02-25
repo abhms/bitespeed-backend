@@ -39,7 +39,7 @@ method GET: https://bitespeed-backend-gqqh.onrender.com/getall
 # For uploading all data endpoint is
 
 ```bash
-method POST :https://bitespeed-backend-gqqh.onrender.com/identify
+method POST : https://bitespeed-backend-gqqh.onrender.com/identify
 
 Send this in body in JSON formate
 

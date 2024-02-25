@@ -42,7 +42,16 @@ app.get("/getall", (req, res) => {
 
 app.post("/identify", async (req, res) => {
     try {
-        const { phoneNumber, email } = req.body;
+        let { phoneNumber, email } = req.body;
+
+        // Trim whitespace from phoneNumber and email
+        phoneNumber = phoneNumber.trim();
+        email = email.trim();
+
+        // Check if both phoneNumber and email are empty or whitespace
+        if (!phoneNumber && !email) {
+            return res.status(400).json({ error: "At least one of phoneNumber or email should be provided." });
+        }
 
         const [contacts] = await connection.promise().query(
             "SELECT * FROM contacts WHERE email = ? OR phoneNumber = ?",
