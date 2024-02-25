@@ -23,7 +23,7 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
+app.get("/getall", (req, res) => {
   try {
     connection.query("SELECT * FROM contacts", (err, results) => {
         if (err) {
@@ -117,7 +117,7 @@ app.post("/identify", async (req, res) => {
     }
 });
 
-app.delete("/contacts", async (req, res) => {
+app.delete("/delete", async (req, res) => {
     try {
         await connection.promise().query("DELETE FROM contacts");
 
