@@ -24,6 +24,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
+  try {
     connection.query("SELECT * FROM contacts", (err, results) => {
         if (err) {
             console.error("Error executing query:", err);
@@ -33,6 +34,10 @@ app.get("/", (req, res) => {
         console.log("Query results:", results);
         res.send(results);
     });
+  } catch (error) {
+    console.error("Error deleting contacts:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.post("/identify", async (req, res) => {
