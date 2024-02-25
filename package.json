@@ -2,10 +2,10 @@
   "name": "bitespeed-backend-task",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec ts-node server.ts"
+    "start": "nodemon --exec ts-node server.js"
   },
   "keywords": [],
   "author": "",
